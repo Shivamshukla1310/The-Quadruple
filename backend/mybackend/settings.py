@@ -146,6 +146,12 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",  # Vite default port
 ]
 
+# For production later, we’ll restrict it using:
+# CORS_ALLOWED_ORIGINS = [
+#     "http://localhost:3000",  # React dev server
+#     "https://your-frontend-domain.com"
+# ]
+
 
 # I guess this is for authentication
 REST_FRAMEWORK = {
@@ -153,3 +159,7 @@ REST_FRAMEWORK = {
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ),
 }
+
+
+# Allow All Origins (for now – dev only)
+CORS_ALLOW_ALL_ORIGINS = True

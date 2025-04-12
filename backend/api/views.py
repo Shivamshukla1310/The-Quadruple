@@ -18,3 +18,13 @@ class RegisterView(generics.CreateAPIView):
 def protected_view(request):
     return Response({"message": f"Hello, {request.user.username}! This is a protected view."})
 
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def user_profile(request):
+    user = request.user
+    return Response({
+        'username': user.username,
+        'email': user.email,
+        'id': user.id,
+    })
+
